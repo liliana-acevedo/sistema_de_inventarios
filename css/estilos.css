@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Contenedor para los botones con flexbox */
+.botones-derecha {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 1000;
+    font-size: 25px;
+}
+
+/* Estilos para los botones individuales */
+.boton-personalizado {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #f6f9f9;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* Margen gris */
+body{
+    margin-left: 80px;
+    margin-top: 45px;
+    transition: margin-left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+main{
+    padding: 20px;
+}
+
+header{
+    width: 100%;
+    height: 60px;
+    background: #f6f9f9;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 200;
+}
+
+.icon__menu{
+    width: 50px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(10px);
+    
+}
+
+.icon__menu i{
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+}
+
+/* Barra deslizante azul */
+.menu__side{
+    width: 80px;
+    height: 100%;
+    background: #03363D; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    font-size: 18px;
+    z-index: 300;
+    overflow: hidden;
+    overflow-y: scroll;
+    border-right: 13px solid #174D4D;
+    transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+/*Ocultar scroll para chrome, safari y opera*/
+.menu__side::-webkit-scrollbar{
+    display: none;
+}
+
+/*Ocultar scroll para IE, Edge y Firefox*/
+.menu__side{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+.name__page{
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.name__page i{
+    width: 20px;
+    margin-right: 20px;
+}
+
+.options__menu{
+    padding: 20px 30px;
+    position: absolute;
+    top: 80px;
+}
+
+.options__menu a{
+    color: #ffffffb2;
+    cursor: default;
+    display: block;
+    position: relative;
+    transition: color 300ms;
+}
+
+.options__menu a:hover{
+    color: white;
+}
+
+.options__menu .option{
+    padding: 20px 0px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.options__menu .option i{
+    width: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.options__menu .option h4{
+    font-weight: 300;
+    cursor: pointer;
+}
+
+a.selected{
+    color: #fff;
+}
+
+.selected:before{
+    content: '';
+    width: 3px;
+    height: 80%;
+    background: white;
+    position: absolute;
+    top: 10%;
+    left: -30px;
+}
+
+/*Botones de buscar - agregar - mostrar*/
+
+.botonFuncion{
+    background-color: #03363D;
+    color: white;
+    border: none;
+    padding: 10px; 
+    font-size: 18px; 
+    margin: 10px;
+    width: 200px; 
+    border-radius: 20px;
+}
+
+.fa-magnifying-glass {
+    font-size: 25px;
+    margin-right: 10px; 
+}
+
+
+
+
+.botonFuncion:hover{
+    background-color: #174D4D;
+}
+
+.id{
+    border-radius: 5px;
+    
+}
+
+
+/*Clases para usar en JavaScript*/
+
+.body_move{
+    margin-left: 250px;
+}
+
+.menu__side_move{
+    width: 250px;
+}
+
+
+@media screen and (max-width: 760px){
+    .body_move{
+        margin-left: 0px;
+    }
+
+    .menu__side_move{
+        width: 80px;
+        left: -80px;
+    }
+}
+
+/*mostrar inventario lista*/
+
+table{
+    background-color: rgb(255, 255, 255);
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td{
+    padding: 20px;
+}
+
+thead {
+    background-color: #03363D;
+    border-top: solid 3px #174D4D; 
+    border-bottom: solid 3px #174D4D;
+    color: rgb(255, 255, 255);
+    width: 100%;
+}
+
+/*Apartado de buuscar Buscar*/
+
+#buscar {
+    padding: 10px;
+    border: 1px solid #03363D;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2);
+}
+
+form {
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 20px;
+}
+
+.boton1:hover{
+    color: white;
+    background-color:#0e5c66;
+}
+
+.boton1 {
+    background-color: #174D4D;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin: 5px ;
+    margin-left: 1px; /* Margen izquierdo */
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/*Agregar al inventario*/
+
+input[type="text"]{
+    padding: 10px;
+    border: 1px solid #03363D;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2);
+}
+
+/* Estilo para las etiquetas de los campos */
+label {
+    font-weight: bold; /* Hace que el texto sea negrita */
+    font-size: 16px; /* Puedes ajustar el tamaño según tus preferencias */
+    margin: 8px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+
+    
+  .cuadro {
+    background-color: #04525c; 
+    padding: 15px;
+    margin: 20px;
+    width: 200%; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .cuadro h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #FFFFFF; 
+  }
+  
+  .cuadro i {
+    font-size: 60px;
+    margin-bottom: 10px;
+    color: #FFFFFF; 
+  }
+  
+  /* Función para modificar el tamaño del icono, del cuadro y de las letras, así como sus colores */
+  .cuadro.small {
+    width: 20%;
+    font-size: 14px;
+  }
+  
+  .cuadro.medium {
+    width: 40%;
+    font-size: 18px;
+  }
+  
+  .cuadro.large {
+    width: 60%;
+    font-size: 24px;
+  }   
+  
+  #piechart {
+    width: 700px;
+    height: 200px;
+    margin-left: 170px; 
+    margin-top: 10px; 
+    
+ }   
+
+ .id, .cantidad, .estadoBolso, .ubicacion, .estado {
+    display: flex; 
+    margin-bottom: 1px; 
+ }
+
+.id input, .cantidad input, .estadoBolso input, .ubicacion input, .estado input {
+    flex: 1;
+    padding: 8px; 
+    border: 1px solid #ccc;
+}
+
+select#estado {
+    width: 175px; 
+    height: 42px; 
+    color: #04525c; 
+  }
+
+select#estadoBolso {
+    width: 175px; 
+    height: 42px; 
+    color: #04525c; 
+  }
+
+
+

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script type="text/css">
+    
+    </script>
+    <div class="botones-derecha">
+    <a href="#"><i class="fa-solid fa-user" style="color: #03363d;"></i></a>
+    <a href="login.php"><i class="fa-solid fa-right-to-bracket" style="color: #03363d;"></i></a>
+    </div>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+    <title>Bolsos L&L</title>
+
+    <link rel="stylesheet" href="./css/estilos.css">
+
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+</head>
+<body id="body">
+    
+    <header>
+        <div class="icon__menu">
+            <i class="fas fa-bars" id="btn_open"></i>
+        </div>
+    </header>
+
+    <div class="menu__side" id="menu_side">
+
+        <div class="name__page">
+        <i class="fa-solid fa-bag-shopping" ></i>
+            <h4>Bolsos L&L</h4>
+        </div>
+
+        <div class="options__menu"> 
+
+            <a href="index.php" class="selected">
+                <div class="option">
+                    <i class="fas fa-home" title="Inicio"></i>
+                    <h4>Inicio</h4>
+                </div>
+            </a>
+
+            <a href="reposicion.php">
+                <div class="option">
+                <i class="fa-solid fa-cart-flatbed" title="reposicion"></i>
+                    <h4>Reposicion</h4>
+                </div>
+            </a>
+            
+            <h4></h4><a href="stock.php"></h4>
+                <div class="option">
+                    <i class="fa-solid fa-table" title="Stocks"></i>
+                    <h4>Stocks</h4>
+                </div>
+            </a>
+            
+            <a href="ventas.php">
+                <div class="option">
+                    <i class="fa-solid fa-file-invoice-dollar" title="ventas"></i>
+                    <h4>ventas</h4>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+    <main>
+    <h1>Inventario</h1><br>    
+    </main>
+
+     <a href="buscar.php" class="botonFuncion"> 
+     <i class="fa-solid fa-magnifying-glass"></i>Buscar</a>
+
+     <a href="agregar.php" class="botonFuncion"> 
+     <i class="fa-solid fa-plus"></i> Agregar Bolsos</a>
+
+     <a href="mostrarInventario.php" class="botonFuncion"> 
+     <i class="fa-solid fa-list"></i> Mostrar Inventario</a>
+
+
+
+     <div class="container">
+      <div class="cuadros">
+      <div class="cuadro">
+      <h2>Productos</h2>
+      <i class="fa-solid fa-warehouse"></i>
+
+      <?php
+            include "backend_php/conexion.php";
+            $buscar = $conexion->query("SELECT COUNT(*) AS total_elementos FROM `inventario`");
+            while ($fila = $buscar->fetch_assoc()) 
+            {
+                echo $fila['total_elementos'];
+            }
+        ?>
+
+
+    </div>
+
+    <div class="cuadro">
+      <h2>Ventas</h2>
+      <i class="fa-solid fa-file-invoice-dollar"></i>
+
+      <?php
+            include "backend_php/conexion.php";
+            $buscar = $conexion->query("SELECT COUNT(*) AS total_elementos FROM `ventas`");
+            while ($fila = $buscar->fetch_assoc()) 
+            {
+                echo $fila['total_elementos'];
+            }
+        ?>
+      
+    </div>
+
+    <div class="cuadro">
+      <h2>Stocks</h2>
+      <i class="fa-solid fa-arrow-trend-down"></i>
+
+      <?php
+            include "backend_php/conexion.php";
+            $buscar = $conexion->query("SELECT COUNT(*) AS total_elementos FROM `inventario` where estadoBolso = 'stock'");
+            while ($fila = $buscar->fetch_assoc()) 
+            {
+                echo $fila['total_elementos'];
+            }
+        ?>
+    </div>
+  </div>
+
+
+
+    
+     <?php
+        include "backend_php/conexion.php";
+        include "backend_php/graficaController.php";
+     ?>
+
+
+
+</body>
+</html>
+
+<script src="js/script.js"></script>
+
+
